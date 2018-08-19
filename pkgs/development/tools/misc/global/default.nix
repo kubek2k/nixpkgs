@@ -33,6 +33,9 @@ stdenv.mkDerivation rec {
     mkdir -p "$out/share/emacs/site-lisp"
     cp -v *.el "$out/share/emacs/site-lisp"
 
+    mkdir -p "$out/share/vim-plugins/global"
+    cp -v *.vim "$out/share/vim-plugins/global"
+
     wrapProgram $out/bin/gtags \
       --prefix PYTHONPATH : "$(toPythonPath ${pythonPackages.pygments})"
     wrapProgram $out/bin/global \
